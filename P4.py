@@ -16,9 +16,18 @@ def Juegos100_Plataforma():
     plt.savefig("100Juegos_Plataformas.png")
     plt.gcf().clear()
 
+def Juegos5000():
+    #Código para obtener el género de los 5000 juegos más vendidos en la historia
+    df_5000 = pd.read_csv('VJVentas.csv')
+    df_c = df_5000.groupby('Genre')['Genre'].value_counts()
+    plot = df_c.plot.pie(y='Genre', figsize=(10,10), autopct="%1.0f%%")
+    plt.savefig("5000Juegos.png")
+    plt.gcf().clear()
+
 df = pd.read_csv('VJVentas.csv', nrows=100)
 Juegos100()
 Juegos100_Plataforma()
+Juegos5000()
 
 
 
