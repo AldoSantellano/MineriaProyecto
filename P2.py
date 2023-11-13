@@ -30,3 +30,9 @@ def asignar_Instancias():
 datos = (asignar_Instancias())
 df = pd.DataFrame(datos)
 df.to_csv("VJVentas.csv", index=False, header=False)
+df_filter = pd.read_csv('VJVentas.csv')
+df_filter.dropna(subset=['Year', 'Publisher'], inplace=True)
+df_filter.to_csv("VJVentas.csv", index=False, header=True)
+
+#NOTA 13 DE NOV: Hice un cambio para borrar filas que no tengan info para
+#arreglar unos problemas de practicas siguientes
